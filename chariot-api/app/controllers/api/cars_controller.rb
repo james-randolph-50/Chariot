@@ -1,5 +1,7 @@
 class Api::CarsController < ApplicationController
 
+    before_action :set_car, only: [:show, :update, :destroy]
+
     def index
         render json: Car.all
     end
@@ -14,12 +16,26 @@ class Api::CarsController < ApplicationController
     end
 
     def update
-        car =
+        if @car.update(car_params)
+            render json: @car
+        else
+            render json: { message: car.errors }, status: 400
+        end
+    end
+
+    def destroy
+        if @car.destroy
+            render status: 204
+        else
+           render json: { message: "Unable to destroy car" }, status: 400
+        end
     end
 
 
+
+
     def show
-        render json: Car.find_by(id: params[:id)
+        render json: @car
     end
 
     private
