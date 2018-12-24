@@ -31,9 +31,6 @@ class Api::CarsController < ApplicationController
         end
     end
 
-
-
-
     def show
         render json: @car
     end
