@@ -3,7 +3,7 @@ import './Cars.css';
 
 
 const Cars = (props) => (
-    <div>
+    <div className="CarsContainer">
         <h3>Cars Component</h3>
         {props.cars.map(car => 
             <div className="CarCard">
