@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+
+import CarCard from '../components/CarCard';
 import './Cars.css';
 
 
-const Cars = (props) => (
-    <div className="CarsContainer">
-        <h3>Cars Component</h3>
-        {props.cars.map(car => 
-            <div key={car.id} className="CarCard">
-                <h3>{car.name}</h3>
-                <p>Price: ${car.price}</p>
-                <img className="CarImage" src={car.img_url} alt={car.name} />
-                <p>Year: {car.year}</p>
-            </div>
-        )}
-    </div>
-);
+class Cars extends Component {
+
+    render() {
+        return (
+        <div className="CarsContainer">
+            <h3>Cars Component</h3>
+            {this.props.cars.map(car => <CarCard key={car.id} car={car} />)}
+        </div>
+        );
+    }
+}
+
 
 export default Cars;
