@@ -6,7 +6,7 @@ const Cars = (props) => (
     <div className="CarsContainer">
         <h3>Cars Component</h3>
         {props.cars.map(car => 
-            <div className="CarCard">
+            <div key={car.id} className="CarCard">
                 <h3>{car.name}</h3>
                 <p>Price: ${car.price}</p>
                 <img className="CarImage" src={car.img_url} alt={car.name} />
