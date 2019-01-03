@@ -11,16 +11,3 @@ ReactDOM.render(
 
 registerServiceWorker();
 
-var store = {
-    cars: [
-        {...}
-    ],
-    carFormData: [
-        {
-            name: '',
-            price: 0,
-            img_url: '',
-            year: 0
-        }
-    ]
-}
