@@ -16,4 +16,13 @@ const carsReducer = (state = [], action) => {
     }
 }
 
-const car = carsReducer();
+const reducers = combineReducers({
+    cars: carsReducer
+});
+const middleWare = [thunk];
+
+export default createStore(
+    reducers,
+    applyMiddleware(...middleWare),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&.__REDUX_DEVTOOLS_EXTENSION__()
+);
