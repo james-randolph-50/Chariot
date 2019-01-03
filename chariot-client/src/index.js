@@ -9,4 +9,18 @@ ReactDOM.render(
     document.getElementById('root')
     );
 
-serviceWorker.unregister();
+registerServiceWorker();
+
+var store = {
+    cars: [
+        {...}
+    ],
+    carFormData: [
+        {
+            name: '',
+            price: 0,
+            img_url: '',
+            year: 0
+        }
+    ]
+}
