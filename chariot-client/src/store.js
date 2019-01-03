@@ -6,7 +6,7 @@ import {
 
 import thunk from 'redux-thunk';
 
-const carsReducer = (state = [], action) => {
+const cars = (state = [], action) => {
     switch(action.type) {
         case 'GET_CAR_SUCCESS';
         return action.cars;

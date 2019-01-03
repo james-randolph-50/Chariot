@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import CarCard from '../components/CarCard';
 import CarForm from './CarForm';
@@ -18,5 +19,11 @@ class Cars extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return ({
+        cars: state.cars
+    })
+}
 
-export default Cars;
+export default connect(mapStateToProps)(Cars);
+
