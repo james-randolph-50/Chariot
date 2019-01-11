@@ -1,5 +1,7 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
+import { resetCarForm } from './carForm';
+
 // Action Creators
 
 const setCars = cars => {
@@ -36,7 +38,10 @@ export const createCar = car => {
             body: JSON.stringify({ car: car })
         })
         .then(response => response.json())
-        .then(car => dispacth(addCar(car)))
+        .then(car => {
+            dispatch(addCar(car))
+            dispatch(resetCarForm())
+        }
         .catch(error => console.log(error))
     }
 }

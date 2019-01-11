@@ -6,3 +6,9 @@ export const updateCarFormData = CarFormData => {
         carFormData
     }
 }
+
+export const resetCardForm = () => {
+    return {
+        type: 'RESET_CAR_FORM'
+    }
+}

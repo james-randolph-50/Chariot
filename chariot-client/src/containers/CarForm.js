@@ -18,7 +18,7 @@ class CarForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.createCar{this.props.carFormData}
+        this.props.createCar(this.props.carFormData)
     }
     
     render() {

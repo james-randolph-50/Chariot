@@ -7,7 +7,10 @@ export default (state = {
 
     switch(action.type) {
         case 'UPDATED_DATA':
-        return action.carFormData
+            return action.carFormData
+
+        case 'RESET_CAR_FORM':
+            return state;
 
         default:
             return state;
