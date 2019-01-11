@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react/redux';
 
 import { updateCarFormData } from '../actions/carForm';
+import { createCar } from '../actions/cars';
 
 class CarForm extends Component {
 
@@ -14,13 +15,18 @@ class CarForm extends Component {
 
         })
     }
+
+    handleOnSubmit = event => {
+        event.preventDefault()
+        this.props.createCar{this.props.carFormData}
+    }
     
     render() {
         const { name, price, img_url, year } = this.props.carFormData;
         return (
             <div>
                 Add A Car
-            <form>
+            <form onSubmit={this.handleOnSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input
@@ -57,6 +63,8 @@ class CarForm extends Component {
                         value={year}
                     />
                 </div>
+
+                <button type="submit">Add Car</button>
             </form>
         </div>
         )

@@ -19,4 +19,17 @@ export const getCars = () => {
     }
 }
 
+export const createCar = car => {
+    return dispatch => {
+        return fetch('${API_URL}/cars', {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            data: JSON.stringify(car)
+        })
+        .then(response => response.json())
+    }
+}
+
 
