@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react/redux';
 
+import { updateCarFormData } from '../actions/carForm';
+
 class CarForm extends Component {
 
     handleOnChange = event => {
-        const [ name, value } = event.target;]
+        const { name, value } = event.target;
+        const currentCarFormData = Object.assign({}, this.props.carFormData, {
+            [name]: value
+        })
+        this.props.updateCarFormData(currentCarFormData){
+
+        })
     }
     
     render() {
@@ -61,4 +69,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(CarForm);
+export default connect(mapStateToProps, { updateCarFormData })(CarForm);
