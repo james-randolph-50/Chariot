@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import Cars from './Cars';
+import { getCars } from '../actions/cars';
 import './App.css';
 
 
 class App extends Component {
-
-    componentDidMount() {
-        fetch('http://localhost:3001/api/cars')
-        .then(response => response.json())
-    }
 
     render() {
         return (

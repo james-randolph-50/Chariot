@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CarCard from '../components/CarCard';
 import CarForm from './CarForm';
 import './Cars.css';
+import { getCars } from '../actions/cars';
 
 
 class Cars extends Component {
@@ -27,5 +28,5 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps)(Cars);
+export default connect(mapStateToProps, { getCars })(Cars);
 

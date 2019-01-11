@@ -1,6 +1,6 @@
 export default (state = [], action) => {
     switch(action.type) {
-        case 'GET_CAR_SUCCESS';
+        case 'GET_CARS_SUCCESS';
         return action.cars;
 
         default:
