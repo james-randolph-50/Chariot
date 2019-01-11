@@ -5,17 +5,7 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
-
-const cars = (state = [], action) => {
-    switch(action.type) {
-        case 'GET_CAR_SUCCESS';
-        return action.cars;
-
-        default:
-        return state;
-    }
-}
-
+import cars from './reducers/cars';
 const reducers = combineReducers({
     cars: carsReducer
 });

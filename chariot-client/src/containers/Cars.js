@@ -8,6 +8,8 @@ import './Cars.css';
 
 class Cars extends Component {
 
+}
+
     render() {
         return (
         <div className="CarsContainer">
