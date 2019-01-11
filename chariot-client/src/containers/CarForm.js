@@ -77,4 +77,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateCarFormData })(CarForm);
+export default connect(mapStateToProps, { 
+    updateCarFormData,
+    createCar
+    })(CarForm);

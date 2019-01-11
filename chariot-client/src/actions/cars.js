@@ -5,8 +5,15 @@ const API_URL = process.env.REACT_APP_API_URL;
 const setCars = cars => {
     return {
         type: 'GET_CARS_SUCCESS',
-        cars
+        car
     }  
+}
+
+const addCar = car -> {
+    return {
+        type: 'CREATE_CAR_SUCCESS',
+
+    }
 }
 
 // Async Actions 
@@ -26,9 +33,11 @@ export const createCar = car => {
             headers: {
                 'Content-type': 'application/json'
             },
-            data: JSON.stringify(car)
+            body: JSON.stringify({ car: car })
         })
         .then(response => response.json())
+        .then(car => dispacth(addCar(car)))
+        .catch(error => console.log(error))
     }
 }
 
