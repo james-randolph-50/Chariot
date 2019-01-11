@@ -9,7 +9,9 @@ import { getCars } from '../actions/cars';
 
 class Cars extends Component {
 
-}
+    componentDidMount() {
+        this.props.getCars
+    }
 
     render() {
         return (

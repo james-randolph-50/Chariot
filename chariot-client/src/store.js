@@ -6,13 +6,16 @@ import {
 
 import thunk from 'redux-thunk';
 import cars from './reducers/cars';
+import carFormData from './reducers/carFormData';
+
 const reducers = combineReducers({
-    cars: carsReducer
+    cars,
+    carFormData
 });
 const middleWare = [thunk];
 
 export default createStore(
     reducers,
-    applyMiddleware(...middleWare),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(...middleWare)
 );
