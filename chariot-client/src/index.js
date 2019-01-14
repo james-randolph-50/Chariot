@@ -31,3 +31,31 @@ registerServiceWorker();
 // //     document.getElementById('root')
 // // );
 // </div>
+
+
+// Drafts of URL Paths
+
+// function Home() {
+//     return (
+//         <div>
+//             <h1>Home</h1>
+//         </div>
+//     );
+// }
+
+// function About() {
+//     return (
+//         <div>
+//             <h2>About</h2>
+//         </div>
+//     );
+// }
+
+// function Login() {
+//     return (
+//         <div>
+//             <h2>Login</h2>
+//         </div>
+//     );
+// }
+
