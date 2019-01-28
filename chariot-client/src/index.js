@@ -19,43 +19,42 @@ registerServiceWorker();
 
 // Draft of Router
 
-// ReactDOM.render((
-//     <Router>
-//         <div>
-// //         <React.Fragment>
-// //             <Route path="/" component={Home} />
-// //             <Route exact path="/about" component={About} />
-// //             <Route exact path="/login" component={Login} />
-// //         </React.Fragment>
-// // </Router>),
-// //     document.getElementById('root')
-// // );
-// </div>
+ReactDOM.render((
+    <Router>
+        <div>
+         <React.Fragment>
+             <Route path="/" component={Home} />
+             <Route exact path="/about" component={About} />
+             <Route exact path="/login" component={Login} />
+         </React.Fragment>
+        </div>
+ </Router>),
+     document.getElementById('root')
+ );
 
 
 // Drafts of URL Paths
 
-// function Home() {
-//     return (
-//         <div>
-//             <h1>Home</h1>
-//         </div>
-//     );
-// }
+class Home extends Component {
+    render() {
+        return (
+            <h1>Home Page</h1>
+        );
+    }
+}
 
-// function About() {
-//     return (
-//         <div>
-//             <h2>About</h2>
-//         </div>
-//     );
-// }
+class About extends Component {
+    render() {
+        return (
+            <h1>About Page</h1>
+        );
+    }
+}
 
-// function Login() {
-//     return (
-//         <div>
-//             <h2>Login</h2>
-//         </div>
-//     );
-// }
-
+class Login extends Component {
+    render() {
+        return (
+            <h1>Login Page</h1>
+        );
+    }
+}
