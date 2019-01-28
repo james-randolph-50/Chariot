@@ -11,9 +11,9 @@ class CarForm extends Component {
         const currentCarFormData = Object.assign({}, this.props.carFormData, {
             [name]: value
         })
-        this.props.updateCarFormData(currentCarFormData){
-
-        })
+        this.props.updateCarFormData(currentCarFormData);{
+            // Need to debug
+        }
     }
 
     handleOnSubmit = event => {

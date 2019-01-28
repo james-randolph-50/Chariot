@@ -11,7 +11,7 @@ const setCars = cars => {
     }  
 }
 
-const addCar = car -> {
+const addCar = car => {
     return {
         type: 'CREATE_CAR_SUCCESS',
 
