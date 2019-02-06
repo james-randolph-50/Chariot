@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 import store from './store.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ ReactDOM.render(
     </Provider>,
     
     document.getElementById('root'));
-    registerServiceWorker();
+    //registerServiceWorker();
 
 
 // Draft of Router

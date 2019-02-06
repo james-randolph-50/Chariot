@@ -1,6 +1,6 @@
 // Action Creators
 
-export const updateCarFormData = CarFormData => {
+export const updateCarFormData = carFormData => {
     return {
         type: 'UPDATED_DATA',
         carFormData

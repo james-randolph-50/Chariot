@@ -7,7 +7,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 const setCars = cars => {
     return {
         type: 'GET_CARS_SUCCESS',
-        car
+        cars
     }  
 }
 
