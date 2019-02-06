@@ -7,7 +7,7 @@ export const updateCarFormData = CarFormData => {
     }
 }
 
-export const resetCardForm = () => {
+export const resetCarForm = () => {
     return {
         type: 'RESET_CAR_FORM'
     }

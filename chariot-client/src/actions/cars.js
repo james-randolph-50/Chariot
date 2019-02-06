@@ -41,7 +41,7 @@ export const createCar = car => {
         .then(car => {
             dispatch(addCar(car))
             dispatch(resetCarForm())
-        }
+        })
         .catch(error => console.log(error))
     }
 }
