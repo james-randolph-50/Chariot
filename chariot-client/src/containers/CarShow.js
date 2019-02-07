@@ -30,9 +30,17 @@ class CarShow extends Component {
                         <img src="{car.img_url}" style="max-width: 250px; max-height: 250px;"/>
                         <h3>Cost: ${car.price}</h3>
                         <h3>Year: {car.year}</h3>
-                )}
             </div>
-
+                ) : (
+                    <p>Loading Car...</p>
+                )}
+                <br></br>
+                <button onClick={() => deleteCar(car.id, history)}>
+                    Delete
+                </button>
+                {car ? <LikeButton car={car} likeCar={this.handleOnClick}/> : 'An Error Occured'}
+            </div>
         )
     }
 }
+
