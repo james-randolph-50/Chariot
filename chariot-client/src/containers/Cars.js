@@ -14,6 +14,11 @@ class Cars extends Component {
     }
 
     render() {
+        const { cars, match } = this.props;
+        const sortedCars = cars.sort(function (a, b) {
+            return b.likes - a.likes;
+        })
+        
         return (
         <div className="CarsContainer">
             <h3>Cars Component</h3>
