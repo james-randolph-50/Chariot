@@ -18,6 +18,20 @@ const addCar = car => {
     }
 }
 
+const removeCar = car => {
+    return {
+        type: 'REMOVE_CAR',
+        car
+    }
+}
+
+
+const addLikes = car => {
+    return {
+        type: 'LIKE_CAR',
+        car
+    }
+}
 // Async Actions 
 
 export const getCars = () => {
