@@ -18,7 +18,7 @@ const addCar = car => {
     }
 }
 
-const removeCar = car => {
+const deleteCar = car => {
     return {
         type: 'REMOVE_CAR',
         car
@@ -32,6 +32,7 @@ const addLikes = car => {
         car
     }
 }
+
 // Async Actions 
 
 export const getCars = () => {
@@ -71,7 +72,7 @@ export const fetchCar = (carId) => {
     }
 }
 
-export const deletecar = (carId, routerHistory) => {
+export const deleteCar = (carId, routerHistory) => {
     return dispatch => {
       return fetch(`${API_URL}/cars/${carId}`, {
         method: "DELETE"
@@ -80,6 +81,25 @@ export const deletecar = (carId, routerHistory) => {
         dispatch(removecar(carId));
         routerHistory.replace('/cars');
       })
+      .catch(error => console.log(error))
+    }
+  }
+
+  export const likeCar = (car, cars) => {
+    const updatedcar = Object.assign(...car, { likes: car.likes + 1 })
+    return dispatch => {
+      return fetch(`${API_URL}/cars/${car.id}`, {
+        method: "PUT",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({car: updatedCar})
+        })
+        .then(response => response.json())
+        .then(car => {
+          dispatch(addLikes(car))
+          dispatch(addLikes(cars))
+        })
       .catch(error => console.log(error))
     }
   }
