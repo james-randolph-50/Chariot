@@ -44,3 +44,10 @@ class CarShow extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return ({
+        car: state.cars
+    })
+}
+
+export default connect(mapStateToProps, {fetchCar, deleteCar, likeCar})(CarShow);
