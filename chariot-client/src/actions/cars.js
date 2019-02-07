@@ -65,10 +65,21 @@ export const fetchCar = (carId) => {
         return fetch(`${API_URL}/cars/${carId}`)
             .then(response => response.json())
             .then(car => {
-                dispatch(setRecipes([recipe]));
+                dispatch(setcars([car]));
             })
             .catch(error => console.log(error));
     }
 }
 
-
+export const deletecar = (carId, routerHistory) => {
+    return dispatch => {
+      return fetch(`${API_URL}/cars/${carId}`, {
+        method: "DELETE"
+      })
+      .then(response => {
+        dispatch(removecar(carId));
+        routerHistory.replace('/cars');
+      })
+      .catch(error => console.log(error))
+    }
+  }
