@@ -60,4 +60,15 @@ export const createCar = car => {
     }
 }
 
+export const fetchCar = (carId) => {
+    return dispatch => {
+        return fetch(`${API_URL}/cars/${carId}`)
+            .then(response => response.json())
+            .then(car => {
+                dispatch(setRecipes([recipe]));
+            })
+            .catch(error => console.log(error));
+    }
+}
+
 
