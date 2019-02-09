@@ -66,19 +66,19 @@ export const fetchCar = (carId) => {
         return fetch(`${API_URL}/cars/${carId}`)
             .then(response => response.json())
             .then(car => {
-                dispatch(setcars([car]));
+                dispatch(setCars([car]));
             })
             .catch(error => console.log(error));
     }
 }
 
-export const deleteCar = (carId, routerHistory) => {
+export const removeCar = (carId, routerHistory) => {
     return dispatch => {
       return fetch(`${API_URL}/cars/${carId}`, {
         method: "DELETE"
       })
       .then(response => {
-        dispatch(removecar(carId));
+        dispatch(removeCar(carId));
         routerHistory.replace('/cars');
       })
       .catch(error => console.log(error))
@@ -86,7 +86,7 @@ export const deleteCar = (carId, routerHistory) => {
   }
 
   export const likeCar = (car, cars) => {
-    const updatedcar = Object.assign(...car, { likes: car.likes + 1 })
+    const updatedCar = Object.assign(...car, { likes: car.likes + 1 })
     return dispatch => {
       return fetch(`${API_URL}/cars/${car.id}`, {
         method: "PUT",
