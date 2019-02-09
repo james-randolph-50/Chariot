@@ -5,10 +5,10 @@ import { Container } from 'semantic-ui-react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Cars from './Cars';
-import CarForm from './components/CarForm';
-import CarShow from './components/CarShow';
-import About from './components/About';
-import Contact from './components/Contact';
+import CarForm from '../actions/CarForm';
+import CarShow from './containers/CarShow';
+import About from '../components/About';
+import Contact from '../components/Contact';
 import { getCars } from '../actions/cars';
 
 
