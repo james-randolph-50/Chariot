@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import Navbar from '../components/Navbar';
 import Cars from './Cars';
-import CarForm from '../actions/CarForm';
+import CarForm from '../containers/CarForm';
 import CarShow from '../containers/CarShow';
 import About from '../components/About';
 import Contact from '../components/Contact';

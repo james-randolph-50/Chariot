@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react/redux';
-
+import { connect } from 'react-redux';
 import { updateCarFormData } from '../actions/carForm';
 import { createCar } from '../actions/cars';
 
