@@ -1,7 +1,6 @@
 import { resetCarForm } from './carForm';
 
 const API_URL = process.env.REACT_APP_API_URL;
-
 // Action Creators
 
 const setCars = cars => {
@@ -46,7 +45,7 @@ export const getCars = () => {
 
 export const createCar = car => {
     return dispatch => {
-        return fetch('${API_URL}/cars', {
+        return fetch(`${API_URL}/cars`, {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
@@ -58,7 +57,7 @@ export const createCar = car => {
             dispatch(addCar(car))
             dispatch(resetCarForm())
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error + 'createCar POST failed'))
     }
 }
 

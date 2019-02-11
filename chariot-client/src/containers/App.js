@@ -8,7 +8,7 @@ import CarForm from '../containers/CarForm';
 import CarShow from '../containers/CarShow';
 import About from '../components/About';
 import Contact from '../components/Contact';
-import { getCars } from '../actions/cars';
+// import { getCars } from '../actions/cars';
 
 
 class App extends Component {
