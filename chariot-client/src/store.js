@@ -11,10 +11,12 @@ const reducers = combineReducers({
     cars,
     carFormData
 });
-const middleWare = [thunk];
 
-export default createStore(
-    reducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(...middleWare)
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+
+const store = createStore(
+  reducers,
+  composeEnhancer(applyMiddleware(thunk)),
 );
+
+export default store;
