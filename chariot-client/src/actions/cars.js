@@ -14,7 +14,7 @@ const setCars = cars => {
 const addCar = car => {
     return {
         type: 'CREATE_CAR_SUCCESS',
-
+        car
     }
 }
 
@@ -41,9 +41,7 @@ export const getCars = () => {
           method: "GET",
           headers: {
             'Content-type': 'application/json'
-          },
-          body: JSON.stringify({ cars: cars })
-        })
+        }})
         .then(response => response.json())
         .then(cars => dispatch(setCars(cars)))
     }
