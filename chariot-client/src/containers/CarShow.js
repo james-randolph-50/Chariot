@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCar } from '../actions/carActions';
-import { deleteCar } from '../actions/carActions';
+import { fetchCar, removeCar, likeCar } from '../actions/cars';
 import CarForm from './CarForm';
 import CarCard from '../components/CarCard';
 import Cars from './Cars';
 import LikeButton from '../components/LikeButton';
-import { likeCar } from '../actions/carActions';
 
 class CarShow extends Component {
 
@@ -20,7 +18,7 @@ class CarShow extends Component {
 
     render() {
         let car = this.props.car[0];
-        const {deleteCar, history} = this.props;
+        const {removeCar, history} = this.props;
 
         return (
             <div className='carShow'>
@@ -35,7 +33,7 @@ class CarShow extends Component {
                     <p>Loading Car...</p>
                 )}
                 <br></br>
-                <button onClick={() => deleteCar(car.id, history)}>
+                <button onClick={() => removeCar(car.id, history)}>
                     Delete
                 </button>
                 {car ? <LikeButton car={car} likeCar={this.handleOnClick}/> : 'An Error Occured'}
@@ -50,4 +48,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, {fetchCar, deleteCar, likeCar})(CarShow);
+export default connect(mapStateToProps, {fetchCar, removeCar, likeCar})(CarShow);
