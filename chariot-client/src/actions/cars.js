@@ -37,10 +37,15 @@ const addLikes = car => {
 
 export const getCars = () => {
     return dispatch => {
-        return fetch('${API_URL}/cars')
-        .then(response => response.text())
-        .then(text => console.log(text));
-        // .then(cars => dispatch(setCars(cars)))
+        return fetch('${API_URL}/cars', {
+          method: "GET",
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({ cars: cars })
+        })
+        .then(response => response.json())
+        .then(cars => dispatch(setCars(cars)))
     }
 }
 
