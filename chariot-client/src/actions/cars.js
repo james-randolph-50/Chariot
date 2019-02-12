@@ -45,7 +45,7 @@ export const getCars = () => {
 
 export const createCar = car => {
     return dispatch => {
-        return fetch(`${API_URL}/cars`, {
+        return fetch(`${API_URL}/cars/create`, {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
