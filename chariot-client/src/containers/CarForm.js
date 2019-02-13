@@ -11,7 +11,6 @@ class CarForm extends Component {
             [name]: value
         })
         this.props.updateCarFormData(currentCarFormData);{
-            // Need to debug
         }
     }
 

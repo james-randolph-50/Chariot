@@ -52,7 +52,13 @@ export const createCar = car => {
             },
             body: JSON.stringify({ car: car })
         })
-        .then(response => response.json())
+        .then(response => {
+          try {
+            return response.json()
+          } catch(error) {
+            console.log(error);
+          }
+        })
         .then(car => {
             dispatch(addCar(car))
             dispatch(resetCarForm())
