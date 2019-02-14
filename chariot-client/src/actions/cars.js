@@ -38,8 +38,11 @@ export const getCars = () => {
     return dispatch => {
         return fetch(`${API_URL}/cars`)
         .then(response => response.json())
-        .then(cars => dispatch(setCars(cars)))
-        .catch(error => console.log(error + ' getCars error'));
+        .then(cars => {
+          debugger;
+          dispatch(setCars(cars))
+        }) 
+        .catch(error => console.log(error + ' setCars error'));
     }
 }
 
