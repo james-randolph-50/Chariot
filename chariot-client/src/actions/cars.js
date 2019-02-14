@@ -50,7 +50,7 @@ export const getCars = () => {
 
 export const createCar = car => {
     return dispatch => {
-        return fetch(`${API_URL}/cars/create`, {
+        return fetch(`${API_URL}/cars`, {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
@@ -64,8 +64,11 @@ export const createCar = car => {
             console.log(error);
           }
         })
-        .then(car => {
-            dispatch(addCar(car))
+        .then(cars => {
+            dispatch({
+            type: 'CREATE_CARS_SUCCESS',
+            payload: cars
+          })
             dispatch(resetCarForm())
         })
         .catch(error => console.log(error + 'createCar POST failed'))

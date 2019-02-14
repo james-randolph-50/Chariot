@@ -17,7 +17,7 @@ class Cars extends Component {
         return (
         <div className="CarsContainer">
             <h3>Cars Component</h3> 
-            {this.props.cars.map(car => <CarCard key={car.id} car={car} />)}
+            {this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}
             <CarForm />
         </div>
         );
