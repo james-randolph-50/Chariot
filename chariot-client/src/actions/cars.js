@@ -39,8 +39,10 @@ export const getCars = () => {
         return fetch(`${API_URL}/cars`)
         .then(response => response.json())
         .then(cars => {
-          debugger;
-          dispatch(setCars(cars))
+          dispatch({
+            type: 'GET_CARS_SUCCESS',
+            payload: cars
+          })
         }) 
         .catch(error => console.log(error + ' setCars error'));
     }

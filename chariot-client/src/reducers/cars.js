@@ -1,7 +1,6 @@
 export default (state = [], action) => {
     switch(action.type) {
         case 'GET_CARS_SUCCESS':
-        debugger;
             return action.cars;
 
         case 'CREATE_CAR_SUCCESS':
