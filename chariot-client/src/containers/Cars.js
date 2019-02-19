@@ -6,10 +6,16 @@ import CarForm from './CarForm';
 import './Cars.css';
 import { getCars } from '../actions/cars';
 
-
+Component.defaultProps = {
+    cars: { cars: [] }
+}
 class Cars extends Component {
 
     componentDidMount() {
+        this.props.getCars()
+    }
+
+    componentDidUpdate() {
         this.props.getCars()
     }
 
@@ -17,8 +23,8 @@ class Cars extends Component {
         return (
         <div className="CarsContainer">
             <h3>Cars Component</h3> 
-            {this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}
-            <CarForm />
+                {this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}            
+                <CarForm />
         </div>
         );
     }
