@@ -24,7 +24,6 @@ const deleteCar = car => {
     }
 }
 
-
 const addLikes = car => {
     return {
         type: 'LIKE_CAR',
@@ -49,27 +48,21 @@ export const getCars = () => {
 }
 
 export const createCar = car => {
-    return dispatch => {
-        return fetch(`${API_URL}/cars`, {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ car: car })
-        })
-        .then(response => {
-          try {
-            return response.json()
-          } catch(error) {
-            console.log(error);
-          }
-        })
-        .then(cars => {
-            dispatch(addCar([car]));
-            dispatch(resetCarForm())
-        })
-        .catch(error => console.log(error + 'createCar POST failed'))
-    }
+  return dispatch => {
+      return fetch(`${API_URL}/cars`, {
+          method: "POST",
+          headers: {
+              'Content-type': 'application/json'
+          },
+          body: JSON.stringify({ car: car })
+      })
+      .then(response => response.json())
+      .then(car => {
+          dispatch(addCar(car))
+          dispatch(resetCarForm())
+      })
+      .catch(error => console.log(error + 'createCar POST failed'))
+  }
 }
 
 export const fetchCar = (carId) => {

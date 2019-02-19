@@ -9,6 +9,6 @@ export default (state = {cars: []}, action) => {
         return Object.assign({}, state, {cars: action.payload})
 
         default:
-        return state;
+            return state;
     }
 }
