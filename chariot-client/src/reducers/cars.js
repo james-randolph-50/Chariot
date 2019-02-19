@@ -5,7 +5,8 @@ export default (state = {cars: []}, action) => {
         return Object.assign({}, state, {cars: action.payload})
 
         case 'CREATE_CAR_SUCCESS':
-            return Object.assign({}, state, {cars: action.payload})
+        
+        return Object.assign({}, state, {cars: action.payload})
 
         default:
         return state;

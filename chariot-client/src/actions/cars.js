@@ -65,10 +65,7 @@ export const createCar = car => {
           }
         })
         .then(cars => {
-            dispatch({
-            type: 'CREATE_CARS_SUCCESS',
-            payload: cars
-          })
+            dispatch(addCar([car]));
             dispatch(resetCarForm())
         })
         .catch(error => console.log(error + 'createCar POST failed'))
