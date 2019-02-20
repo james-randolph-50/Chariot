@@ -22,7 +22,7 @@ class Cars extends Component {
     render() {
         return (
         <div className="CarsContainer">
-            <h3>Cars Component</h3> 
+            <h3>Cars Container</h3> 
                 {this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}            
                 <CarForm />
         </div>

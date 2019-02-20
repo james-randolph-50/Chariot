@@ -82,7 +82,7 @@ export const removeCar = (carId, routerHistory) => {
         method: "DELETE"
       })
       .then(response => {
-        dispatch(removeCar(carId));
+        dispatch(deleteCar(carId));
         routerHistory.replace('/cars');
       })
       .catch(error => console.log(error))
