@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeButton from './LikeButton.js';
 
 const CarCard = ({ car }) => (
     <div key={car.id} className="CarCard">
@@ -6,6 +7,7 @@ const CarCard = ({ car }) => (
         <p>Price: ${car.price}</p>
         <img className="CarImage" src={car.img_url} alt={car.name} />
         <p>Year: {car.year} </p>
+        <LikeButton />
     </div>
 )
 

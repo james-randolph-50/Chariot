@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCar, removeCar, likeCar } from '../actions/cars';
+import { fetchCar, getCars, removeCar, likeCar } from '../actions/cars';
 import CarCard from '../components/CarCard';
 import Cars from './Cars';
 import LikeButton from '../components/LikeButton';
@@ -11,7 +11,7 @@ class CarShow extends Component {
 
         this.state = {
             cars: []
-        }
+        };
     }
 
     handleOnDelete = () => {
@@ -20,7 +20,8 @@ class CarShow extends Component {
 
 
     componentDidMount() {
-        this.props.fetchCar(this.props.match.params.carId);
+        this.props.fetchCar()
+        this.props.fetchCar(this.props.match.params.id);
     }
 
     render() {
@@ -38,14 +39,14 @@ class CarShow extends Component {
                 <button onClick={() => removeCar(car.id, history)}>
                     Delete
                 </button>
-                {car ? <LikeButton car={car} likeCar={this.handleOnClick}/> : 'An Error Occured'}
+                {/* {car ? <LikeButton car={car} likeCar={this.handleOnClick}/> : 'An Error Occured'} */}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const car = state.cars.find(car => car.id == ownProps.match.params.carId)
+const mapStateToProps = (state, props) => {
+    //const car = state.cars.find(car => car.id == ownProps.match.params.carId)
     return ({
         car: state.cars
     })

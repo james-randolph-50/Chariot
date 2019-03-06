@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateCarFormData } from '../actions/carForm';
 import { createCar } from '../actions/cars';
+import { resetCarForm } from '../actions/carForm';
 
 class CarForm extends Component {
 
@@ -16,7 +17,10 @@ class CarForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
+        console.log('A')
         this.props.createCar(this.props.carFormData)
+        console.log('B')
+       // resetCarForm()
     }
     
     render() {

@@ -15,9 +15,9 @@ class Cars extends Component {
         this.props.getCars()
     }
 
-    componentDidUpdate() {
-        this.props.getCars()
-    }
+    // componentDidUpdate() {
+    //     this.props.getCars()
+    // }
 
     render() {
         return (
