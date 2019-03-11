@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCar, getCars, removeCar, likeCar } from '../actions/cars';
 import CarCard from '../components/CarCard';
-import Cars from './Cars';
-import LikeButton from '../components/LikeButton';
 
 class CarShow extends Component {
-    constructor() {
-        super()
+    // constructor() {
+    //     super()
 
-        this.state = {
-            cars: []
-        };
-    }
+    //     this.state = {
+    //         cars: []
+    //     };
+    // }
 
     handleOnDelete = () => {
         this.props.deleteCar(this.props.car, this.props.history)
@@ -26,7 +24,7 @@ class CarShow extends Component {
 
     render() {
         let car = this.props.car[0];
-        const {removeCar, history} = this.props;
+        // const {removeCar, history} = this.props;
 
         return (
             <div className='carShow'>
@@ -36,20 +34,25 @@ class CarShow extends Component {
                     <p>Loading Car...</p>
                 )}
                 <br></br>
-                <button onClick={() => removeCar(car.id, history)}>
-                    Delete
-                </button>
-                {/* {car ? <LikeButton car={car} likeCar={this.handleOnClick}/> : 'An Error Occured'} */}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state, props) => {
-    //const car = state.cars.find(car => car.id == ownProps.match.params.carId)
-    return ({
+const mapStateToProps = (state) => {
+    return {
         car: state.cars
-    })
+    }
 }
 
-export default connect(mapStateToProps, {fetchCar, removeCar, likeCar})(CarShow);
+const mapDispatchToProps = dispatch => {
+    return {
+        delete: car =>
+        dispatch({
+            type: 'REMOVE_CAR',
+            payload: car
+        })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, {fetchCar, removeCar, likeCar})(CarShow);

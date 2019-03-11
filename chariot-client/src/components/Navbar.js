@@ -12,11 +12,11 @@ const Navbar = () => {
           </Menu.Item>
           <Menu.Item as={Link} to='/cars' name='Cars'>
           </Menu.Item> | 
-          <Menu.Item as={Link} to='/cars/new' name='Add A Car'>
+          <Menu.Item as={Link} to='/cars/new' name=' Add A Car'>
           </Menu.Item> | 
-          <Menu.Item as={Link} to='/about' name='About'>
+          <Menu.Item as={Link} to='/about' name=' About'>
           </Menu.Item> | 
-          <Menu.Item as={Link} to='/contact' name='Contact Us'>
+          <Menu.Item as={Link} to='/contact' name=' Contact Us'>
           </Menu.Item>
         </Menu>
       </div>
