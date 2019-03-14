@@ -4,18 +4,10 @@ import { fetchCar, getCars, removeCar, likeCar } from '../actions/cars';
 import CarCard from '../components/CarCard';
 
 class CarShow extends Component {
-    // constructor() {
-    //     super()
-
-    //     this.state = {
-    //         cars: []
-    //     };
-    // }
 
     handleOnDelete = () => {
         this.props.deleteCar(this.props.car, this.props.history)
     }
-
 
     componentDidMount() {
         this.props.fetchCar()
