@@ -1,6 +1,7 @@
 import { resetCarForm } from './carForm';
 
 const API_URL = process.env.REACT_APP_API_URL;
+
 // Action Creators
 
 const setCars = cars => {
@@ -31,20 +32,38 @@ const addLikes = car => {
     }
 }
 
-// Async Actions 
+const sortCars = cars => {
+  return {
+    type: 'SORT_CAR',
+    cars
+  }
+}
+
+// Async Actions
+
+export const sortCar = (cars) => {
+  console.log(cars, 'cars object');
+  return dispatch => {
+    dispatch({
+      type: 'SORT_CARS',
+      payload: cars
+    })
+  }
+}
 
 export const getCars = () => {
-    return dispatch => {
-        return fetch(`${API_URL}/cars`)
-        .then(response => response.json())
-        .then(cars => {
-          dispatch({
-            type: 'GET_CARS_SUCCESS',
-            payload: cars
-          })
-        }) 
-        .catch(error => console.log(error + ' setCars error'));
-    }
+  return dispatch => {
+    console.log("getCars successful")
+    return fetch(`${API_URL}/cars`)
+    .then(response => response.json())
+    .then(cars => {
+      dispatch({
+        type: 'GET_CARS_SUCCESS',
+        payload: cars
+      })
+    }) 
+    .catch(error => console.log(error + ' setCars error'));
+  }
 }
 
 export const createCar = car => {
@@ -110,3 +129,5 @@ export const removeCar = (carId, routerHistory) => {
       .catch(error => console.log(error))
     }
   }
+
+ 

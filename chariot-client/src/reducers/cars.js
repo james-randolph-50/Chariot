@@ -12,6 +12,9 @@ export default (state = {cars: []}, action) => {
         case 'REMOVE_CAR;':
         return state.filter(car => car.id !== action.id)
 
+        case 'SORT_CARS;':
+        return Object.assign({}, state, { cars: action.payload})
+
         default:
             return state;
     }
