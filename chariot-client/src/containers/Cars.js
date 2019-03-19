@@ -34,6 +34,7 @@ sortAlphabetically = () => {
     })  
     console.log(orgArray)
     this.props.sortCar(orgArray);
+    //this.props.sortCar({cars: orgArray})
     this.setState({ cars: {cars: orgArray} })
     }
 
