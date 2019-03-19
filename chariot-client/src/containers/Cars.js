@@ -47,7 +47,7 @@ sortAlphabetically = () => {
 
 componentDidMount() {
      this.props.getCars()
-     this.setState({cars: this.props.cars})
+     //this.setState({cars: this.props.cars})
   }
 
 
