@@ -19,9 +19,14 @@ class Cars extends Component {
         buttonClicked: false
       };
   }
+  
+  // handleSortClick = () => {
+  //    this.setState({
+  //      buttonClicked: !this.state.buttonClicked})
+  //  }
 
 sortAlphabetically = () => {
-    handleSortClick();
+    //handleSortClick();
     const newArray = [].concat(this.props.cars.cars)
     const orgArray = newArray.sort(function (a,b) {
       var nameA = a.name.toUpperCase();
@@ -33,7 +38,11 @@ sortAlphabetically = () => {
       } 
       return 0;
     })  
-    this.setState({ cars: {cars: orgArray} })
+    this.setState({ 
+      cars: {cars: orgArray},
+      buttonClicked: !this.state.buttonClicked
+     })
+     console.log(this.state.buttonClicked);
 }
 
 componentDidMount() {
@@ -41,15 +50,8 @@ componentDidMount() {
     // this.setState({cars: this.props.cars})
   }
 
- handleSortClick() {
-    this.setState({
-      buttonClicked: !this.state.buttonClicked})
-  }
 
 render() {
-
-  const buttonClicked = this.state.buttonClicked
-  let display;
 
   if (this.state.buttonClicked) {
     {this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car}/>)}  
@@ -60,7 +62,7 @@ render() {
 <div className="CarsContainer">
     <h3>Cars Container</h3> 
         <button onClick={this.sortAlphabetically}>Sort</button>
-        {display}
+        {/* {display} */}
         <CarForm />
     </div>
     );
