@@ -19,57 +19,36 @@ class Cars extends Component {
       };
   }
 
-// sortAlphabetically = () => {
-//     console.log("sort button clicked")
-//     const newArray = [].concat(this.props.cars.cars)
-//     const orgArray = newArray.sort(function (a,b) {
-//       var nameA = a.name.toUpperCase();
-//       var nameB = b.name.toUpperCase();
-//       if (nameA < nameB) {
-//         return -1;
-//       } else if (nameA > nameB) {
-//         return 1;
-//       } 
-//       return 0;
-//     }, () => this.setState({ cars: orgArray }))  
-//     console.log(orgArray)
-//     this.props.sortCar(orgArray);
-//     }
-
 sortAlphabetically = () => {
-  console.log("sort button clicked")
-  const newArray = [].concat(this.props.cars.cars)
-  const orgArray = newArray.sort(function (a,b) {
-    var nameA = a.name.toUpperCase();
-    var nameB = b.name.toUpperCase();
-
-    if (nameA < nameB) {
-      return -1;
-    } else if (nameA > nameB) {
-      return 1;
+    console.log("sort button clicked")
+    const newArray = [].concat(this.props.cars.cars)
+    const orgArray = newArray.sort(function (a,b) {
+      var nameA = a.name.toUpperCase();
+      var nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      } else if (nameA > nameB) {
+        return 1;
+      } 
+      return 0;
+    })  
+    console.log(orgArray)
+    this.props.sortCar(orgArray);
+    this.setState({ cars: {cars: orgArray} })
     }
 
-    return 0;
-  },
-
-  this.setState({ cars: orgArray }))  
-  console.log(orgArray)
-  this.props.sortCar(orgArray);
-}
-
-componentDidMount() {
-    this.props.getCars()
+async componentDidMount() {
+    await this.props.getCars()
     this.setState({cars: this.props.cars})
 }
-
 
 render() {
     return (
     <div className="CarsContainer">
         <h3>Cars Container</h3> 
             <button onClick={this.sortAlphabetically}>Sort</button>
-            {this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}  
-            {/* {this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car} />)}           */}
+            {/* {this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}   */}
+            {this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car} />)}          
             <CarForm />
     </div>
     );
@@ -90,4 +69,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cars);
-

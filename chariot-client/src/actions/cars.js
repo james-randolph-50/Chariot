@@ -34,7 +34,7 @@ const addLikes = car => {
 
 const sortCars = cars => {
   return {
-    type: 'SORT_CAR',
+    type: 'SORT_CARS',
     cars
   }
 }
