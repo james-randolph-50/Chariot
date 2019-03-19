@@ -47,22 +47,24 @@ sortAlphabetically = () => {
 
 componentDidMount() {
      this.props.getCars()
-    // this.setState({cars: this.props.cars})
+     this.setState({cars: this.props.cars})
   }
 
 
 render() {
 
+  let message
   if (this.state.buttonClicked) {
-    {this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car}/>)}  
+        message = this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car}/>)  
   } else {
-{this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)}  
+      message = this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)
   }
+
     return (
 <div className="CarsContainer">
     <h3>Cars Container</h3> 
         <button onClick={this.sortAlphabetically}>Sort</button>
-        {/* {display} */}
+        {message}
         <CarForm />
     </div>
     );
