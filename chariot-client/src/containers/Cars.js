@@ -19,22 +19,43 @@ class Cars extends Component {
       };
   }
 
+// sortAlphabetically = () => {
+//     console.log("sort button clicked")
+//     const newArray = [].concat(this.props.cars.cars)
+//     const orgArray = newArray.sort(function (a,b) {
+//       var nameA = a.name.toUpperCase();
+//       var nameB = b.name.toUpperCase();
+//       if (nameA < nameB) {
+//         return -1;
+//       } else if (nameA > nameB) {
+//         return 1;
+//       } 
+//       return 0;
+//     }, () => this.setState({ cars: orgArray }))  
+//     console.log(orgArray)
+//     this.props.sortCar(orgArray);
+//     }
+
 sortAlphabetically = () => {
-    console.log("sort button clicked")
-    const newArray = [].concat(this.props.cars.cars)
-    const orgArray = newArray.sort(function (a,b) {
-      var nameA = a.name.toUpperCase();
-      var nameB = b.name.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
-      } else if (nameA > nameB) {
-        return 1;
-      } 
-      return 0;
-    }, () => this.setState({ cars: orgArray }))  
-    console.log(orgArray)
-    this.props.sortCar(orgArray);
+  console.log("sort button clicked")
+  const newArray = [].concat(this.props.cars.cars)
+  const orgArray = newArray.sort(function (a,b) {
+    var nameA = a.name.toUpperCase();
+    var nameB = b.name.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    } else if (nameA > nameB) {
+      return 1;
     }
+
+    return 0;
+  },
+
+  this.setState({ cars: orgArray }))  
+  console.log(orgArray)
+  this.props.sortCar(orgArray);
+}
 
 componentDidMount() {
     this.props.getCars()

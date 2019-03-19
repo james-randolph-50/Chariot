@@ -44,10 +44,7 @@ const sortCars = cars => {
 export const sortCar = (cars) => {
   console.log(cars, 'cars object');
   return dispatch => {
-    dispatch({
-      type: 'SORT_CARS',
-      payload: cars
-    })
+    dispatch(sortCars(cars))
   }
 }
 
