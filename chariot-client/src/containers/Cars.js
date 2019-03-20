@@ -19,14 +19,9 @@ class Cars extends Component {
         buttonClicked: false
       };
   }
-  
-  // handleSortClick = () => {
-  //    this.setState({
-  //      buttonClicked: !this.state.buttonClicked})
-  //  }
 
 sortAlphabetically = () => {
-    //handleSortClick();
+   
     const newArray = [].concat(this.props.cars.cars)
     const orgArray = newArray.sort(function (a,b) {
       var nameA = a.name.toUpperCase();
@@ -39,7 +34,7 @@ sortAlphabetically = () => {
       return 0;
     })  
     this.setState({ 
-      cars: {cars: orgArray},
+      cars: orgArray,
       buttonClicked: !this.state.buttonClicked
      })
      console.log(this.state.buttonClicked);
@@ -47,24 +42,23 @@ sortAlphabetically = () => {
 
 componentDidMount() {
      this.props.getCars()
-     //this.setState({cars: this.props.cars})
   }
 
 
 render() {
 
-  let message
+  let display
   if (this.state.buttonClicked) {
-        message = this.state.cars.cars && this.state.cars.cars.map(car => <CarCard key={car.id} car={car}/>)  
+        display = this.state.cars && this.state.cars.map(car => <CarCard key={car.id} car={car}/>)  
   } else {
-      message = this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)
+      display = this.props.cars.cars && this.props.cars.cars.map(car => <CarCard key={car.id} car={car} />)
   }
 
     return (
 <div className="CarsContainer">
     <h3>Cars Container</h3> 
         <button onClick={this.sortAlphabetically}>Sort</button>
-        {message}
+        {display}
         <CarForm />
     </div>
     );
